@@ -1,0 +1,19 @@
+version: 2
+updates:
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "sunday"
+      time: "03:00"
+      timezone: "America/New_York"
+    open-pull-requests-limit: 5
+    target-branch: "main"
+    commit-message:
+      prefix: "ci"
+      include: "scope"
+    # Group all action updates into a single PR to avoid notification churn
+    groups:
+      github-actions:
+        patterns:
+          - "*"
