@@ -2,34 +2,67 @@ name: Generate Contribution Snake
 
 on:
   schedule:
-    # Runs at 00:00 UTC every day
+    # 00:00 UTC daily
     - cron: "0 0 * * *"
   workflow_dispatch:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
+# Top-level default: Deny all permissions
+permissions: {}
+
+concurrency:
+  group: snake-build
+  cancel-in-progress: true
 
 jobs:
-  build:
+  generate:
+    name: Generate SVGs
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    permissions:
+      contents: read
 
     steps:
-      - name: Generate Snake SVGs
-        uses: Platane/snk/svg-only@v3
+      - name: Generate Snake SVGs (Tokyo Night)
+        uses: Platane/snk/svg-only@d04a602c38cbcd515d18d05dd3621759089f664a # v3.2.0
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg?color_snake=%232e7de9&color_dots=%23e1e2e7,%239aa5ce,%237aa2f7,%233d59a1,%232e7de9
             dist/github-contribution-grid-snake-dark.svg?color_snake=%2373daca&color_dots=%231a1b26,%2324283b,%233d59a1,%237aa2f7,%23bb9af7
 
-      - name: Deploy SVGs to Output Branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Stash Artifacts
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf6581a511820c01c156 # v4.4.3
         with:
-          target_branch: output
-          build_dir: dist
+          name: snake-svgs
+          path: dist/
+          retention-days: 1
+
+  publish:
+    name: Deploy to Output Branch
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: write
+
+    steps:
+      - name: Retrieve Stashed Artifacts
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16 # v4.1.8
+        with:
+          name: snake-svgs
+          path: dist/
+
+      - name: Deploy SVGs to Output Branch via Native Git
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          cd dist
+          git init
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          git commit -m "chore: auto-update contribution snake svgs [skip ci]"
+          git push --force "https://x-access-token:${GITHUB_TOKEN}@github.com/${GITHUB_REPOSITORY}.git" HEAD:output
