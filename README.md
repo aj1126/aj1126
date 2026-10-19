@@ -1,6 +1,9 @@
-![Header Banner](./assets/banner.png)
+
 ## Hi there 👋
 
+![Unity](https://img.shields.io/badge/Unity-2022+-000000?logo=unity&logoColor=white)
+![C#](https://img.shields.io/badge/C%23-239120?logo=csharp&logoColor=white)
+![TypeScript](https://img.shields.io/badge/TypeScript-3178C6?logo=typescript&logoColor=white)
 <!--
 **aj1126/aj1126** is a ✨ _special_ ✨ repository because its `README.md` (this file) appears on your GitHub profile.
 
