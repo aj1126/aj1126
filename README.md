@@ -44,6 +44,14 @@
   <img src="https://streak-stats.demolab.com?user=aj1126&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak Stats" height="150" />
 </p>
 
+### Contribution Activity
+
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake.svg" />
+  <img alt="GitHub Contribution Grid Snake" src="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake.svg" />
+</picture>
+
 <!-- Live Shields.io GitHub Metrics: Direct API queries cached via Shields CDN -->
 <p align="left">
   <a href="https://github.com/aj1126?tab=repositories">
