@@ -27,7 +27,7 @@ jobs:
     steps:
       - name: Checkout Repository
         # actions/checkout pinned to v4.2.2
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
+        uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1
 
       - name: Generate Snake SVGs (Tokyo Night)
         uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b
