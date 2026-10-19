@@ -2,34 +2,70 @@ name: Generate Contribution Snake
 
 on:
   schedule:
-    # Runs at 00:00 UTC every day
+    # 00:00 UTC daily
     - cron: "0 0 * * *"
   workflow_dispatch:
   push:
     branches:
       - main
 
-permissions:
-  contents: write
+# Top-level: Deny all default permissions
+permissions: {}
+
+concurrency:
+  group: snake-build
+  cancel-in-progress: true
 
 jobs:
-  build:
+  generate:
+    name: Generate SVGs
     runs-on: ubuntu-latest
     timeout-minutes: 5
+    # Principle of least privilege: Read-only access to repository contents
+    permissions:
+      contents: read
 
     steps:
-      - name: Generate Snake SVGs
-        uses: Platane/snk/svg-only@v3
+      - name: Generate Snake SVGs (Tokyo Night)
+        # Platane/snk/svg-only pinned to v3.2.0 commit SHA
+        uses: Platane/snk/svg-only@d04a602c38cbcd515d18d05dd3621759089f664a
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
             dist/github-contribution-grid-snake.svg?color_snake=%232e7de9&color_dots=%23e1e2e7,%239aa5ce,%237aa2f7,%233d59a1,%232e7de9
             dist/github-contribution-grid-snake-dark.svg?color_snake=%2373daca&color_dots=%231a1b26,%2324283b,%233d59a1,%237aa2f7,%23bb9af7
 
-      - name: Deploy SVGs to Output Branch
-        uses: crazy-max/ghaction-github-pages@v3.1.0
+      - name: Stash Artifacts
+        # actions/upload-artifact pinned to v4.4.3
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf6581a511820c01c156
+        with:
+          name: snake-svgs
+          path: dist/
+          retention-days: 1
+
+  publish:
+    name: Deploy to Output Branch
+    needs: generate
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    # Principle of least privilege: Write permissions isolated strictly to deployment
+    permissions:
+      contents: write
+
+    steps:
+      - name: Retrieve Stashed Artifacts
+        # actions/download-artifact pinned to v4.1.8
+        uses: actions/download-artifact@fa0a91b85d4f404e444e00e005971372dc801d16
+        with:
+          name: snake-svgs
+          path: dist/
+
+      - name: Commit SVGs to Output Branch
+        # crazy-max/ghaction-github-pages pinned to v3.1.0
+        uses: crazy-max/ghaction-github-pages@dbbe52c4107b66c8ec84358373b7861867966da3
         with:
           target_branch: output
           build_dir: dist
+          commit_message: "chore: auto-update contribution snake svgs [skip ci]"
         env:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
