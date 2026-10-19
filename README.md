@@ -10,6 +10,33 @@
 
 ---
 
+### Activity & Contribution Metrics
+
+<!-- Demolab Streak Stats: Hosted independently without Vercel dependency -->
+<p align="left">
+  <img src="https://streak-stats.demolab.com?user=aj1126&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak Stats" height="150" />
+</p>
+
+
+<!-- Live Shields.io GitHub Metrics: Direct API queries cached via Shields CDN -->
+<p align="left">
+  <a href="https://github.com/aj1126?tab=repositories">
+    <img src="https://img.shields.io/badge/dynamic/json?color=3178C6&label=Public%20Repositories&query=%24.public_repos&url=https%3A%2F%2Fapi.github.com%2Fusers%2Faj1126&style=flat-square&logo=github" alt="Public Repositories" />
+  </a>
+  <a href="https://github.com/aj1126?tab=followers">
+    <img src="https://img.shields.io/badge/dynamic/json?color=512BD4&label=Followers&query=%24.followers&url=https%3A%2F%2Fapi.github.com%2Fusers%2Faj1126&style=flat-square&logo=github" alt="Followers" />
+  </a>
+  <img src="https://img.shields.io/github/commit-activity/y/aj1126/aj1126?style=flat-square&label=Profile%20Commits&color=239120&logo=git" alt="Profile Commits" />
+</p>
+
+<picture id="snake">
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake-dark.svg" />
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake.svg" />
+  <img alt="GitHub Contribution Grid Snake" src="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake.svg" />
+</picture>
+
+---
+
 ### Focus Areas
 
 * **Simulation & Engine Architecture:** Designing decoupled, headless simulation cores and deterministic tick loops with complete isolation between domain state logic and UI presentation adapters.
@@ -35,30 +62,5 @@
 * **Deterministic Execution:** Predictable, discrete execution ticks enable headless benchmarking, seamless unit testing, and reproducible states.
 * **Automation-First Operations:** Eliminating manual setup and maintenance via modular scripting, strict sanitization, and structured pipelines.
 
----
 
-### Activity & Contribution Metrics
 
-<!-- Demolab Streak Stats: Hosted independently without Vercel dependency -->
-<p align="left">
-  <img src="https://streak-stats.demolab.com?user=aj1126&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak Stats" height="150" />
-</p>
-
-### Contribution Activity
-
-<picture>
-  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake-dark.svg" />
-  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake.svg" />
-  <img alt="GitHub Contribution Grid Snake" src="https://raw.githubusercontent.com/aj1126/aj1126/output/github-contribution-grid-snake.svg" />
-</picture>
-
-<!-- Live Shields.io GitHub Metrics: Direct API queries cached via Shields CDN -->
-<p align="left">
-  <a href="https://github.com/aj1126?tab=repositories">
-    <img src="https://img.shields.io/badge/dynamic/json?color=3178C6&label=Public%20Repositories&query=%24.public_repos&url=https%3A%2F%2Fapi.github.com%2Fusers%2Faj1126&style=flat-square&logo=github" alt="Public Repositories" />
-  </a>
-  <a href="https://github.com/aj1126?tab=followers">
-    <img src="https://img.shields.io/badge/dynamic/json?color=512BD4&label=Followers&query=%24.followers&url=https%3A%2F%2Fapi.github.com%2Fusers%2Faj1126&style=flat-square&logo=github" alt="Followers" />
-  </a>
-  <img src="https://img.shields.io/github/commit-activity/y/aj1126/aj1126?style=flat-square&label=Profile%20Commits&color=239120&logo=git" alt="Profile Commits" />
-</p>
