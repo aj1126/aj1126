@@ -37,9 +37,20 @@
 
 ---
 
-### Activity Overview
+### Activity & Contribution Metrics
 
+<!-- Demolab Streak Stats: Hosted independently without Vercel dependency -->
 <p align="left">
-  <img src="https://github-readme-stats.vercel.app/api?username=YOUR_GITHUB_USERNAME&show_icons=true&theme=tokyonight&hide_border=true&count_private=true" alt="GitHub Stats" height="150" />
-  <img src="https://github-readme-stats.vercel.app/api/top-langs/?username=YOUR_GITHUB_USERNAME&layout=compact&theme=tokyonight&hide_border=true" alt="Top Languages" height="150" />
+  <img src="https://streak-stats.demolab.com?user=aj1126&theme=tokyonight&hide_border=true&date_format=M%20j%5B%2C%20Y%5D" alt="GitHub Streak Stats" height="150" />
+</p>
+
+<!-- Live Shields.io GitHub Metrics: Direct API queries cached via Shields CDN -->
+<p align="left">
+  <a href="https://github.com/aj1126?tab=repositories">
+    <img src="https://img.shields.io/badge/dynamic/json?color=3178C6&label=Public%20Repositories&query=%24.public_repos&url=https%3A%2F%2Fapi.github.com%2Fusers%2Faj1126&style=flat-square&logo=github" alt="Public Repositories" />
+  </a>
+  <a href="https://github.com/aj1126?tab=followers">
+    <img src="https://img.shields.io/badge/dynamic/json?color=512BD4&label=Followers&query=%24.followers&url=https%3A%2F%2Fapi.github.com%2Fusers%2Faj1126&style=flat-square&logo=github" alt="Followers" />
+  </a>
+  <img src="https://img.shields.io/github/commit-activity/y/aj1126/aj1126?style=flat-square&label=Profile%20Commits&color=239120&logo=git" alt="Profile Commits" />
 </p>
