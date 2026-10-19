@@ -21,7 +21,6 @@ jobs:
     name: Build & Deploy Snake SVGs
     runs-on: ubuntu-latest
     timeout-minutes: 5
-    # Scoped permissions: write access restricted to this single job
     permissions:
       contents: write
 
@@ -31,8 +30,7 @@ jobs:
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683
 
       - name: Generate Snake SVGs (Tokyo Night)
-        # Platane/snk/svg-only pinned to v3.2.0
-        uses: Platane/snk/svg-only@d04a602c38cbcd515d18d05dd3621759089f664a
+        uses: Platane/snk/svg-only@d8f6715049803e982ee5ff501b6b9b7d5deeb09b
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
